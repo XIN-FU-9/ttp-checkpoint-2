@@ -31,6 +31,9 @@ function SectionA() {
   // Declare a variable called myCity and assign it the city you are from.
   const myName = "Xin"
   const myCity = "New York"
+  //const [myName] = useState("Xin")
+  //const [myCity] = useState("New York")
+
 
   // A2.
   // Inside the return below, add a <p> tag that displays your name.
@@ -105,12 +108,35 @@ function SectionA() {
 //
 // Write PageHeader here:
 
+function PageHeader()
+{
+  return(
+    <header>
+      <h1>My React App</h1>
+      <nav>
+        <a href="#"> Home </a>
+        <a href="#"> About</a>
+        <a href="#"> Contact</a>
+      </nav>
+    </header>
+  )
+}
+
 
 // B2.
 // Create a component called PageFooter.
 // It should return a <footer> element with a <p> that says "2026 TTP".
 //
 // Write PageFooter here:
+
+function PageFooter()
+{
+  return(
+    <footer>
+      <p>2026 TTP</p>
+    </footer>
+  )
+}
 
 
 function SectionB() {
@@ -122,13 +148,19 @@ function SectionB() {
   //          Why do we split UI into separate components instead of
   //          writing everything inside one big function?
   //
-  //          answer:
+  //          answer: A component is a funciton that return JSX. And in React, the components are 
+  //          small, reusable functions that each return a piece of the page. This keeps code
+  //          organized and reuse the same UI in multiple places. Everything we build in React is a component.
 
 
   return (
     <div>
       <h2>Section B — Your Own Components</h2>
       {/* Render your components below */}
+
+      {/* B3 */}
+      <PageHeader/>
+      <PageFooter/>
 
     </div>
   )
