@@ -29,12 +29,14 @@ function SectionA() {
   // A1.
   // Declare a variable called myName and assign it your first name as a string.
   // Declare a variable called myCity and assign it the city you are from.
-
+  const myName = "Xin"
+  const myCity = "New York"
 
   // A2.
   // Inside the return below, add a <p> tag that displays your name.
   // Add a second <p> tag that displays your city.
   // Embed each variable into the JSX rather than typing the value directly.
+  
   //
   // Hint: How do you embed a JavaScript value inside JSX?
   //      If you don't embed the value correctly,
@@ -52,6 +54,7 @@ function SectionA() {
   // A5.
   // Declare a variable and assign it the result of 25 + 17.
   // Add a <p> tag that shows both the expression and the computed value on the same line.
+  const result = 25 + 17
   //
   // EXPLAIN: What is JSX? How is it different from plain HTML?
   //          Why do you need curly braces to embed a variable's value?
@@ -63,7 +66,22 @@ function SectionA() {
       <h2>Section A — JSX Basics</h2>
       {/* Your output goes below this line */}
 
+      {/* A2 */}
+      <p>{myName}</p>
+      <p>{myCity}</p>
+
+      {/* A3 */}
+      <p>{myName.toUpperCase()}</p>
+
+      {/* A4 */}
+      <p>The number of characters in my name: {myName.length} </p>
+      {/* <p> {myName} has {myName.length} characters. */}
+
+      {/* A5 */}
+      <p> 25 + 17 = {result}</p> 
+
     </div>
+    
   )
 }
 
