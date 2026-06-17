@@ -25,11 +25,20 @@
 // The StudentBadge component below is hardcoded — it always shows the same text.
 // we will update this soon.
 
-function StudentBadge() {
+function StudentBadge(props) {
   return (
     <div>
-      <h3>Student Name</h3>
-      <p>Grade: 0</p>
+      <h3>{props.name}</h3>
+      <p>Grade:{props.grade}</p>
+    </div>
+  )
+}
+
+function TeacherCard(props){
+  return(
+    <div>
+      <h3>{props.name}</h3>
+      <p>Subject:{props.subject}</p>
     </div>
   )
 }
@@ -67,10 +76,22 @@ function SectionA() {
   return (
     <div>
       <h2>Section A — Props</h2>
-      <StudentBadge />
+      <br/>
       {/* A1 + A2: Render two more StudentBadge components here */}
+      
+      {/* A1 */}
+      {/* <StudentBadge />
+      <StudentBadge />
+      <StudentBadge /> */}
 
+      {/* A2 */}
+      <StudentBadge name = "Alice" grade = "A"/>
+      <StudentBadge name = "Tom" grade = "B"/>
+      <StudentBadge name = "Jon" grade = "B+"/>
+      <br/>
+      
       {/* A3: Render your TeacherCard here */}
+      <TeacherCard name = "Professor.Smith" subject = "Computer Science"/>
 
     </div>
   )
