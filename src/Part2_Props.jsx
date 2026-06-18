@@ -112,14 +112,32 @@ function SectionA() {
 //   - name is a string
 //   - score is a number
 //   - isActive is a boolean
-//
-// If isActive is true, display the text "Active".
-// If isActive is false, display the text "Inactive".
+
 
 // Hint: declare a variable above the return, set its value using an if/else,
 //       then embed that variable in your JSX.
 //
+
 // Write PlayerCard here:
+
+function PlayerCard(props){
+  let status = "";
+  if(props.isActive){
+    // If isActive is true, display the text "Active".
+    status = "Active";
+  } else {
+    // If isActive is false, display the text "Inactive".
+    status = "Inactive";
+  }
+
+  return (
+    <div>
+      <p>Player: {props.name}</p>
+      <p>Score {props.score}</p>
+      <p>Status: {props.status}</p>
+    </div>
+  )
+}
 
 
 
@@ -132,7 +150,13 @@ function SectionB() {
   return (
     <div>
       <h2>Section B — Props with Different Types</h2>
+      <br/>
       {/* Render your PlayerCard components here */}
+      <PlayerCard name = "Tom" score = {7} isActive = {true}/>
+      <br/>
+      <PlayerCard name = "Alice" score = {10} isActive = {false}/>
+      <br/>
+      <PlayerCard name = "JJ" score = {8} isActive = {false}/>
 
     </div>
   )
