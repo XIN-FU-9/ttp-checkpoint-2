@@ -89,6 +89,7 @@ li {
   color: #222;
 }
 
+
 nav a {
   margin-right: 16px;
   color: #6366f1;
@@ -103,4 +104,8 @@ footer {
   margin-top: 12px;
   color: #888;
   font-size: 0.9rem;
+}
+
+button{
+  color: #111;
 }

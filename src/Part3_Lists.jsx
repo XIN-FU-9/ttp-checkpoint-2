@@ -24,11 +24,12 @@
 // The following array is provided. Do not change it.
 const players = [
   { id: 1, name: "LeBron",  score: 42 },
-  { id: 2, name: "Curry",   score: 31 },
-  { id: 3, name: "Messi",   score: 55 },
-  { id: 4, name: "Serena",  score: 18 },
-  { id: 5, name: "Brady",   score: 67 },
+  { id: 1, name: "Curry",   score: 31 },
+  { id: 1, name: "Messi",   score: 55 },
+  { id: 1, name: "Serena",  score: 18 },
+  { id: 1, name: "Brady",   score: 67 },
 ]
+
 
 function SectionA() {
   // A1.
@@ -47,7 +48,12 @@ function SectionA() {
   // EXPLAIN: Why does React require a key prop on each list item?
   //          What happens if two items share the same key?
   //
-  //          answer:
+  //          answer: 1.Because of that every key is unique and when we use 
+  //                    one element's id, we need to know which element is to 
+  //                    be used.
+  //                  2.We don't know which id is.
+
+
 
   return (
     <div>
@@ -65,6 +71,7 @@ function SectionA() {
       <h3>Score above 30</h3>
       <ul>
          {players.filter((player)=>
+         //player.score > 30 is a condition so we don't need ()
         player.score > 30).map((player) => (
           <li key = {player.id}>{player.name} - {player.score}</li>
         ))}
@@ -89,6 +96,15 @@ function SectionA() {
 //
 // Write PlayerRow here:
 
+function PlayerRow (props){
+
+  return(
+    <div>
+      {props.name} - {props.score}
+    </div>
+  )
+
+}
 
 
 function SectionB() {
@@ -104,11 +120,20 @@ function SectionB() {
   //          compared to mapping to a plain HTML element like <li>?
   //
   //          answer:
+  //                  1.Both can produce the similar results, but when rendering a component
+  //                    inside.map(), it makes the code less and the components to be reused easier.
 
   return (
     <div>
       <h2>Section B — Lists and Components</h2>
       {/* B2: map PlayerRow components here */}
+
+      {// when return a JS code, we need to wrap code in {}
+        players.map((player)=>(
+          //This passing objs into a component.
+          <PlayerRow key = {player.id} name = {player.name} score = {player.score} />
+        ))
+      }
 
     </div>
   )
