@@ -51,9 +51,20 @@ function Counter() {
   //      to update it. When you call the update function, React re-renders
   //      the component and shows the new value on the page.
 
+  const [count,setCount] = useState(0)
+
+  //count is your variable
+  //You want to inncrease that variable
+  //You cannot do count + 1
+  //In order for you to update count you need to use setCount
+  //That is the only way that you can update or touch or whatever count
+  //setCount()
+
   // A2.
   // Add a button that says "Add 1".
   // When clicked, it should increase count by 1.
+
+
 
   // A3.
   // Add a second button that says "Reset".
@@ -64,10 +75,11 @@ function Counter() {
   return (
     <div>
       {/* A1: remove the hardcoded 0 with the state */}
-      <h3>Count: 0</h3>
+      <h3>Count: {count}</h3>
       {/* A2: Add 1 button */}
-
+      <button onClick={() => {setCount(count + 1)}}> Add 1 </button>
       {/* A3: Reset button */}
+      <button onClick={()=> {setCount(0)}}>Reset</button>
 
     </div>
   )
@@ -79,6 +91,11 @@ function SectionA() {
   //          What happens on the page when you call the updater function?
   //
   //          answer:
+                  // 1. State is a components's memory. 
+                  // 2. The regular variables are don't trigger UI changes. But a State Variables are
+                  // trigger UI changes.
+                  // 3.When call the updater function such as (setCount(cont +1)), it triggers the memory 
+                  // updates, the component re-runs and the screen changes.
 
   return (
     <div>
