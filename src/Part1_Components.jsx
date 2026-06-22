@@ -31,8 +31,8 @@ function SectionA() {
   // Declare a variable called myCity and assign it the city you are from.
   const myName = "Xin"
   const myCity = "New York"
-  //const [myName] = useState("Xin")
-  //const [myCity] = useState("New York")
+  //const [myName] = useState("Xin") --- this way is using state
+  //const [myCity] = useState("New York") ----this way is using state
 
 
   // A2.
@@ -58,6 +58,8 @@ function SectionA() {
   // Declare a variable and assign it the result of 25 + 17.
   // Add a <p> tag that shows both the expression and the computed value on the same line.
   const result = 25 + 17
+
+  //note : const num = 25 + 17 // it is same
   //
   // EXPLAIN: What is JSX? How is it different from plain HTML?
   //          Why do you need curly braces to embed a variable's value?
@@ -72,8 +74,8 @@ function SectionA() {
       {/* A2 */}
       <p>{myName}</p>
       <p>{myCity}</p>
-
-      {/* A3 */}
+      
+      {/* A3 */} 
       <p>{myName.toUpperCase()}</p>
 
       {/* A4 */}
@@ -89,6 +91,14 @@ function SectionA() {
 }
 
 
+//note:
+//function hey(){
+//  return "it is v"
+//}
+
+//return(
+//<p>function: {hey}</p>. /-- output will show the It is v)
+//
 // ------------------------------------------------------------
 // SECTION B — Writing Your Own Components - you don't need to export anything
 //
@@ -111,7 +121,7 @@ function SectionA() {
 function PageHeader()
 {
   return(
-    <header>
+    <header> 
       <h1>My React App</h1>
       <nav>
         <a href="#"> Home </a>
@@ -121,6 +131,8 @@ function PageHeader()
     </header>
   )
 }
+
+// we need a <div> to wrap everthing together. Here i used <header> instead of a <div>
 
 
 // B2.

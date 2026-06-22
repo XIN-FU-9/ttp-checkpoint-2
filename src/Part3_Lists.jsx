@@ -66,6 +66,13 @@ function SectionA() {
           <li key ={player.id}>{player.name} - {player.score}</li>
         ))}
       </ul>
+      
+      {/* This is the different of using ( ) or { } after the sign of : => 
+      we need put the retur in the {} and add a (), after the return.
+      {players.map((player) => {
+        return (<li key ={player.id}>{player.name} - {player.score}</li>)
+        }
+       */}
 
       {/* A2: filtered list goes here: */}
       <h3>Score above 30</h3>
@@ -75,6 +82,22 @@ function SectionA() {
         player.score > 30).map((player) => (
           <li key = {player.id}>{player.name} - {player.score}</li>
         ))}
+
+        {/* note:
+        if after => there is  only need one return, then use (), but if use a {}
+        then there is more flixble to add more method such as math. ect.
+        This is a personal prefence.
+        
+        {const newArr = players.filter((player)=>
+          {
+          return player.score > 30}
+        )
+          
+        newArr.map((player) => (
+          <li key = {player.id}>{player.name} - {player.score}</li>
+        ))}
+        
+        */}
       </ul>
     </div>
   )
@@ -131,6 +154,7 @@ function SectionB() {
       {// when return a JS code, we need to wrap code in {}
         players.map((player)=>(
           //This passing objs into a component.
+          //note: here code Js logic.
           <PlayerRow key = {player.id} name = {player.name} score = {player.score} />
         ))
       }

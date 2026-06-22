@@ -78,6 +78,19 @@ function Counter() {
       <h3>Count: {count}</h3>
       {/* A2: Add 1 button */}
       <button onClick={() => {setCount(count + 1)}}> Add 1 </button>
+
+      {/* note:
+      <button onClick = {(event) => {
+      setCount(count +1)
+      }}  > add 1 </button>*/}
+
+      {/* note:
+      We can also add strings, but it all about the UI.
+      <button onClick = {(event) => {
+      setCount(count +1 + " ")
+      }}  > add 1 </button>*/}
+
+
       {/* A3: Reset button */}
       <button onClick={()=> {setCount(0)}}>Reset</button>
 
@@ -95,7 +108,7 @@ function SectionA() {
                   // 2. The regular variables are don't trigger UI changes. But a State Variables are
                   // trigger UI changes.
                   // 3.When call the updater function such as (setCount(cont +1)), it triggers the memory 
-                  // updates, the component re-runs and the screen changes.
+                  // updates, the component re-runs and the screen
 
   return (
     <div>
@@ -122,6 +135,9 @@ function MoodPicker() {
   // Declare a state variable called mood with an initial value of your choice
   // (a string, like "neutral").
 
+  // note: 
+  const [mood,setMood] = useState('neutral')
+
   // B2.
   // Add three buttons: "Happy", "Sad", and "Excited".
   // Each button needs its own click handler that sets mood to that
@@ -144,8 +160,15 @@ function MoodPicker() {
   return (
     <div>
       {/* B2: three buttons go here */}
+      {/* note: */}
+       <button onClick={() => {setMood('happy')}}> Happy </button>
+       <button onClick={() => {setMood('sad')}}> Sad </button>
+       <button onClick={() => {setMood('excited')}}> Excited </button>
+
 
       {/* B3: mood display goes here */}
+      {/* note */}
+      <p>current mood: {mood}</p>
 
     </div>
   )
@@ -176,6 +199,8 @@ function NameInput() {
   // C1.
   // Declare a state variable called inputValue. Choose an appropriate initial value.
 
+  //note:
+    const [inputValue,setInputValue] = useState('')
   // C2.
   // Add an input element.
   // Wire it up so that every keystroke updates the state variable.
@@ -199,7 +224,29 @@ function NameInput() {
     <div>
       {/* C2: input goes here */}
 
+      {/* note */}
+      <input
+        type = "text"
+        plaaceholder = 'some text'
+        value = {inputValue}
+        onChange = {(event)=>{
+          console.log(event.target)
+          setInputValue(event.target.value)
+        }}
+        />
+
+        {/* note:
+        This is how to hide the text on the input box
+        also need to command out the value = {inputValue}
+        
+        onClick = {(event)=>{
+          console.log(event.target)
+          setInputValue('')
+          }}
+         */}
+
       {/* C3: display text goes here */}
+      <p>text: {inputValue}</p>
 
     </div>
   )
@@ -228,6 +275,8 @@ function SectionC() {
 function Toggle() {
   // D1.
   // Declare a state variable called isVisible with an initial value of false.
+  // note:
+  const [isVisible, setisVisible] = useState("")
 
   // D2.
   // Add a button that toggles isVisible between true and false when clicked.
@@ -259,7 +308,17 @@ function Toggle() {
     <div>
       {/* D2: button goes here */}
 
+      {/* note */}
+      <button onClick={() =>{setisVisible(!isVisible) }> toggle visible </button>
+
       {/* D3 / D4: conditional message goes here */}
+      // note:
+
+      // {
+      //   isVisible
+      //   ?<p> now you see me</p>
+      //   ?<p>now you don't see me</p>
+      // }
 
     </div>
   )
@@ -295,6 +354,7 @@ function LightSwitchButton(/* E3: accept a prop here */) {
   return (
     <div>
       {/* E3: button goes here */}
+      {/* note------------------------------------------ */}
 
     </div>
   )
@@ -304,8 +364,14 @@ function LightSwitch() {
   // E1.
   // Declare a state variable called isOn with an initial value of false.
 
+const [isOn,setIson] = useState(false)
+
   // E2.
   // Write a function that flips isOn to the opposite value.
+
+  function flipState() {
+    setIson(!isOn)
+  }
 
   // E4.
   // Render LightSwitchButton below, passing your flip function from E2
@@ -326,8 +392,12 @@ function LightSwitch() {
   return (
     <div>
       {/* E5: on/off sentence goes here */}
+      {/* note */}
+      <p> the lights are :{isOn ? 'on': 'off'}</p>
 
       {/* E4: LightSwitchButton goes here */}
+      {/* note----------------------------------------------  */}
+      <LightSwitchButton
 
     </div>
   )
@@ -356,6 +426,8 @@ function GreetingForm() {
   // F1.
   // Declare a state variable called nameInput, starting as an empty string.
   // Declare a second state variable called greeting, starting as an empty string.
+  cosnt [NameInput,setnameInpput] = useState('')
+  const [greeting, setGreeting] = useState('')
 
   // F2.
   // Add a <form> containing a controlled text input wired to nameInput,
@@ -369,6 +441,14 @@ function GreetingForm() {
   //
   // Why: preventDefault() stops the browser's default reload-the-page
   //      behavior, so your state survives the submit.
+
+  //note:
+  const handleSubmit = (event) = >{
+    event.preventDefault()
+
+    setGreeting('Hello,' + name)
+    setName('')
+  }
 
   // F4.
   // Wire your function from F3 to the form's submit event.
@@ -388,6 +468,15 @@ function GreetingForm() {
   return (
     <div>
       {/* F2: form goes here */}
+    {/* note -----------------------------------------------------------------*/}
+    <form onSubmit={handleSubmit}>
+      <input
+        type='text'
+        value={name}
+        placeholder='my name'
+        onChange={(e) => setName(e.target.value)}
+    </form>
+
 
       {/* F5: greeting goes here */}
 
@@ -420,11 +509,12 @@ function SnackList() {
   // G1.
   // Declare a state variable called snacks, an array starting with two
   // or three snack name strings of your choice.
-
+  const [snack,setSnacks] = useState
   // G2.
   // Add a button labeled "Add Pretzels". When clicked, it should add the
   // string "Pretzels" to the snacks array — without mutating the original
   // array. Look into the spread operator for this.
+  // note: use ...snacks , the three dots reprensent to copy all the stuff in the array.
 
   // G3.
   // Display each snack using .map(). Each one needs a key, and its own
@@ -444,6 +534,18 @@ function SnackList() {
   //          instead?
   //
   //          answer:
+
+
+  //note:
+  //  These are two methods to copy a new arry and add object in.
+  // cosnt addP = ()=>{
+    //setSnacks([...snacks,, 'apple'])}
+
+  //cosnt newArr = snacks.map()
+  // newArr.push('a')
+  //set Snacks(newArr)
+
+
 
   return (
     <div>

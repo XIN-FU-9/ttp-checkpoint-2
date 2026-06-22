@@ -34,6 +34,7 @@ function StudentBadge(props) {
   )
 }
 
+// A3
 function TeacherCard(props){
   return(
     <div>
@@ -71,7 +72,7 @@ function SectionA() {
   //          Can you change a prop's value inside the component that receives it?
   //          Why or why not?
   //
-  //          answer:
+  //          answer: Props is keyword in react.
 
   return (
     <div>
@@ -85,17 +86,26 @@ function SectionA() {
       <StudentBadge /> */}
 
       {/* A2 */}
+      {/* start from the object's name--->
+      left side is property  =  right side is the value */}
       <StudentBadge name = "Alice" grade = "A"/>
       <StudentBadge name = "Tom" grade = "B"/>
-      <StudentBadge name = "Jon" grade = "B+"/>
+      <StudentBadge name = "Jon" grade = "B+"/> 
+      {/* class note: 
+            <StudentBadge name = "Jon" grade = {89}   />   
+            <StudentBadge name = "Jon" grade = "89"  />----they are the same */}
+      
       <br/>
       
       {/* A3: Render your TeacherCard here */}
+      {/* the components I created is location upon */}
       <TeacherCard name = "Professor.Smith" subject = "Computer Science"/>
 
     </div>
   )
 }
+
+
 
 
 // ------------------------------------------------------------
@@ -135,9 +145,14 @@ function PlayerCard(props){
       <p>Player: {props.name}</p>
       <p>Score {props.score}</p>
       <p>Status: {props.status}</p>
+      {/* note: 
+      This is the same:
+      <p>isActive:{props.isActive? 'Active' : 'not active'}</p> 
+      */}
     </div>
   )
 }
+
 
 
 
